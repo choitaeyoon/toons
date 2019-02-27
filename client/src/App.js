@@ -7,7 +7,7 @@ import './App.css';
 import SignIn from './components/pages/SignInPage';
 import Register from './components/pages/RegisterPage';
 import Chat from './components/pages/ChatPage';
-import withAuth from './components/auth/checkAuth';
+import withAuth from './components/auth/CheckAuth';
 
 class App extends Component {
   render() {

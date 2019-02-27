@@ -35,10 +35,28 @@ server = app.listen(4000, () =>{
 })
 
 //Socket config
-io = socket(server)
+io = socket(server);
+
+var onlineUsers = [];
 
 io.on('connection', (socket) => {
+    socket.on('NEW_CONNECTION', function(data){
+        onlineUsers.push({
+            "nickname": data.nickname,
+            "socketID": socket.client.id
+        })
+        console.log(data.nickname, 'connected')
+        io.emit('ONLINE_USERS_UPDATE', onlineUsers);
+    })
+
     socket.on('SEND_MESSAGE', function(data){
         io.emit('RECEIVE_MESSAGE',data);
+    })
+
+    socket.on('disconnect', function(){
+        let discUserIndex = onlineUsers.findIndex(user => user.socketID === socket.client.id);
+        console.log(onlineUsers[discUserIndex].nickname, 'disconnected');
+        onlineUsers.splice(discUserIndex, 1);
+        io.emit('ONLINE_USERS_UPDATE', onlineUsers);
     })
 })

@@ -18,7 +18,7 @@ const styles = theme => ({
   },
   main: {
     width: 'auto',
-    display: 'block', // Fix IE 11 issue.
+    display: 'block',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
@@ -39,14 +39,18 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit * 2
   },
   submit: {
     marginTop: theme.spacing.unit * 3,
   },
   register: {
     marginTop: theme.spacing.unit * 2,
+  },
+  facebook: {
+    marginTop: theme.spacing.unit * 3
   }
 });
 
@@ -59,7 +63,6 @@ class SignInPage extends React.Component {
     }
   }
 
-  //ch
   handleInputChange = (event) => {
     const { value, name } = event.target;
     this.setState({
@@ -87,7 +90,7 @@ class SignInPage extends React.Component {
     })
     .catch(err => {
       console.log(err);
-      alert('Error logging in');
+      alert('Email or Password Incorrect');
     })
   }
 
@@ -129,7 +132,7 @@ class SignInPage extends React.Component {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submit}
           >
             Sign in
@@ -142,7 +145,7 @@ class SignInPage extends React.Component {
             className={classes.register}
             onClick={() => this.props.history.push('/register')}
             >
-            Register Now!
+            Register Now
           </Button>
       </Paper>
     </main>

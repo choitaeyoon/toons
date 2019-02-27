@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { Router } = require('express');
 
-const User = require('../../bin/userModel');
+const User = require('../../bin/models/userModel');
 
 const router = new Router();
 const secret = process.env.SECRET;
@@ -14,8 +14,7 @@ router.post('/', (req,res) => {
                 .json({ error: 'Internal error please try again' });
         }
         else if (!user){
-            res.status(401)
-                .json({ error:'Incorrect email or password' });
+            
         }
         else {
             user.isCorrectPassword(password, (err,same) => {
