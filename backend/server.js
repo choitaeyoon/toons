@@ -32,7 +32,7 @@ app.get('/api/user/userInfo', userInfo, (req,res) => {
 app.use('/api/user/register', userRegister);
 app.use('/api/user/authenticate',userAuthenticate);
 
-server = app.listen(process.env.PORT, () =>{
+var server = app.listen(process.env.PORT || 3000, () =>{
     console.log(`Listening on port ${ process.env.PORT }`);
 })
 
