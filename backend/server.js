@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const socket = require('socket.io');
+const cors = require('cors');
 
 const userRegister = require('./app/user/userRegister');
 const userAuthenticate = require('./app/user/userAuthenticate');
@@ -14,6 +15,7 @@ const userInfo = require('./app/middleware/getUserInfo');
 const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors({origin: 'https://app.toons.tae-yoon.me'}));
 
 //Routes
 app.get('/api/checkToken', withAuth, (req,res) => {

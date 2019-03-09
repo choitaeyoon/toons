@@ -53,14 +53,6 @@ class SideBar extends Component {
                 })}
               </List>
               <Divider />
-              <List>
-                <ListItem button>
-                  <ListItemIcon>
-                    <DashboardIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Main Channel"></ListItemText>
-                </ListItem>
-              </List>
             </Drawer>
         )
     }

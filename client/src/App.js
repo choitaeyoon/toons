@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'typeface-roboto';
 import './App.css';
 
-import SignIn from './components/pages/SignInPage';
-import Register from './components/pages/RegisterPage';
-import Chat from './components/pages/ChatPage';
+import SignInPage from './components/pages/SignInPage';
+import RegisterPage from './components/pages/RegisterPage';
+import ChatPage from './components/pages/ChatPage';
 import withAuth from './components/auth/CheckAuth';
 
 class App extends Component {
@@ -15,9 +15,9 @@ class App extends Component {
       <Router>
         <div className="App">
             <div className="container">
-              <Route exact path='/' component={ withAuth(Chat) }/>
-              <Route exact path='/signin' component={ SignIn } />
-              <Route exact path='/register' component= { Register } />
+              <Route exact path='/' component={ withAuth(ChatPage) }/>
+              <Route exact path='/signin' component={ SignInPage } />
+              <Route exact path='/register' component= { RegisterPage } />
             </div>
       </div>
       </Router>
