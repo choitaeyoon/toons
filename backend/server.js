@@ -32,8 +32,8 @@ app.get('/api/user/userInfo', userInfo, (req,res) => {
 app.use('/api/user/register', userRegister);
 app.use('/api/user/authenticate',userAuthenticate);
 
-server = app.listen(4000, () =>{
-    console.log('Listening on port 4000');
+server = app.listen(process.env.PORT, () =>{
+    console.log(`Listening on port ${ process.env.PORT }`);
 })
 
 //Socket config
