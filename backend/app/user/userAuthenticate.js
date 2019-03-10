@@ -39,7 +39,7 @@ router.post('/', (req,res) => {
                         expiresIn: '1h'
                     });
                     res.cookie('token', token, {
-                        domain: 'app.toons.tae-yoon.me',
+                        domain: '.toons.tae-yoon.me',
                         httpOnly: false,
                     }).sendStatus(200);
                 }
