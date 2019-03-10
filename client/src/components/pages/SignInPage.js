@@ -83,7 +83,7 @@ class SignInPage extends React.Component {
     })
     .then(res => {
       if(res.status === 200){
-        console.log("cookies received");
+        console.log("verified");
         this.props.history.push('/');
       }
       else {

@@ -38,7 +38,7 @@ router.post('/', (req,res) => {
                     const token = jwt.sign(payload, secret, {
                         expiresIn: '1h'
                     });
-                    res.status(200).send({jwt: token});
+                    res.cookie('token', token, {httpOnly: false}).sendStatus(200);
                 }
             })
         }
