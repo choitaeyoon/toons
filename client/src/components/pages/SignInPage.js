@@ -77,11 +77,13 @@ class SignInPage extends React.Component {
       credentials: 'include',
       body: JSON.stringify(this.state),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     .then(res => {
       if(res.status === 200){
+        console.log("cookies received");
         this.props.history.push('/');
       }
       else {
