@@ -71,7 +71,7 @@ const styles = theme => ({
             alert("Passwords don't match")
         }
         else{
-            fetch('/api/user/register', {
+            fetch('https://api.toons.tae-yoon.me/api/user/register', {
                 method: 'POST',
                 body: JSON.stringify(this.state),
                 headers: {

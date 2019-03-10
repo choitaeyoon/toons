@@ -11,7 +11,7 @@ export default function withAuth(ComponentToProtect) {
       };
     }
     componentDidMount() {
-      fetch('/api/checkToken')
+      fetch('https://api.toons.tae-yoon.me/api/checkToken')
         .then(res => {
           if (res.status === 200) {
             this.setState({ loading: false });

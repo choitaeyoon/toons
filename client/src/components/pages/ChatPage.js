@@ -74,7 +74,7 @@ class ChatPage extends Component {
 
     //SET AND SEND NICKNAME OF NEW CONNECTION
     this.socket.on('connect', () => {
-      fetch('/api/user/userInfo')
+      fetch('https://api.toons.tae-yoon.me/api/user/userInfo')
       .then(res => res.json())
       .then(data => {
         updateUser(data);

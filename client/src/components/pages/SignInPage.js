@@ -72,12 +72,13 @@ class SignInPage extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    fetch('/api/user/authenticate', {
+    fetch('https://api.toons.tae-yoon.me/api/user/authenticate', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      credentials: 'include'
     })
     .then(res => {
       if(res.status === 200){
