@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
 
 const withAuth = function(req,res,next) {
+    console.log(req.headers.cookies);
     console.log(req.cookies);
     const token = 
         req.body.token ||
