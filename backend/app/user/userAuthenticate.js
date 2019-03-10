@@ -8,6 +8,7 @@ const secret = process.env.SECRET;
 
 router.post('/', (req,res) => {
     const { email, password } = req.body;
+    console.log("Login Request came in")
     User.findOne({email}, (err,user) => {
         if(err) {
             console.log("Internal Error");
