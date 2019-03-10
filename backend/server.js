@@ -16,13 +16,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(session({
-    secret: process.env.SECRET,
-    cookie: {
-        path: '/',
-        domain: 'toons.tae-yoon.me'
-    }
-}))
 const corsOptions = {
     origin: [process.env.URL],
     credentials: true
