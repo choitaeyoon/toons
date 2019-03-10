@@ -15,8 +15,14 @@ const userInfo = require('./app/middleware/getUserInfo');
 const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors({origin: 'https://app.toons.tae-yoon.me'}));
-app.options('*', cors());
+
+const corsOptions = {
+    origin: [process.env.URL]
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 //Routes
 app.get('/api/checkToken', withAuth, (req,res) => {
     res.sendStatus(200);
