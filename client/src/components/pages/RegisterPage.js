@@ -82,6 +82,9 @@ const styles = theme => ({
                 if(res.status === 200){
                   this.props.history.push('/signin');
                 }
+                else if(res.status == 202){
+                  alert('User already exists');
+                }
                 else {
                   throw new Error(res.error);
                 }
