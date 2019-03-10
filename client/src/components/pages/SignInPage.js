@@ -74,11 +74,11 @@ class SignInPage extends React.Component {
     event.preventDefault();
     fetch('https://api.toons.tae-yoon.me/api/user/authenticate', {
       method: 'POST',
+      credentials: 'include',
       body: JSON.stringify(this.state),
       headers: {
         'Content-Type': 'application/json'
-      },
-      credentials: 'include'
+      }
     })
     .then(res => {
       if(res.status === 200){
