@@ -9,24 +9,29 @@ router.post('/',(req,res) => {
         if(err) {
             console.log("Internal Error");
             res.status(500)
-                .json({ error: 'Internal error please try again' });
+                .json({ error: "Internal error please try again" });
         }
         else if(user){
+            console.log("User already exists");
             res.status(202)
                 .send("Error: User already exists.")
         }
-    })
-    const user = new User({ nickname, email, password });
-    user.save(function(err){
-        if(err){
-            console.log(err)
-            res.status(500)
-                .send("Error registering new user.");
+        else{
+            const user = new User({ nickname, email, password });
+            user.save(function(err){
+                if(err){
+                    console.log(err)
+                    res.status(500)
+                        .send("Error registering new user.");
+                }
+                else {
+                    console.log("Added new user.")
+                    res.status(200).send("Welcome to Toons!");
+                }
+            })
         }
-        else {
-            res.status(200).send("Welcome to Toons!");
-        }
     })
+    
 })
 
 module.exports = router;
