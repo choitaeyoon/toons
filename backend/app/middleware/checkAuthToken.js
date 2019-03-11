@@ -3,7 +3,6 @@ const secret = process.env.SECRET;
 
 const withAuth = function(req,res,next) {
     console.log(req.headers);
-    console.log(req.headers);
     const token = 
         req.body.token ||
         req.query.token ||

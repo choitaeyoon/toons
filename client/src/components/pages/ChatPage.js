@@ -76,12 +76,12 @@ class ChatPage extends Component {
     this.socket.on('connect', () => {
       fetch('https://api.toons.tae-yoon.me/api/user/userInfo',{
         method: 'GET',
-        credentials: 'include',
         'Cache': 'no-cache',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
-        }
+        },
+        credentials: 'include'
       })
       .then(res => res.json())
       .then(data => {

@@ -13,12 +13,12 @@ export default function withAuth(ComponentToProtect) {
     componentDidMount() {
       fetch('https://api.toons.tae-yoon.me/api/checkToken',{
         method: 'GET',
-        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
           'Cache': 'no-cache'
-        }
+        },
+        credentials: 'include'
       })
         .then(res => {
           if (res.status === 200) {

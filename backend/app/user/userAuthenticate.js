@@ -39,7 +39,7 @@ router.post('/', (req,res) => {
                         expiresIn: '1h'
                     });
                     res.cookie('token', token, {
-                        domain: '.toons.tae-yoon.me',
+                        domain: 'api.toons.tae-yoon.me',
                         expires: new Date(Date.now() + 900000),
                         secure: 'true',
                         httpOnly: false,
