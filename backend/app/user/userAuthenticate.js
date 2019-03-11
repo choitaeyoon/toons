@@ -40,6 +40,7 @@ router.post('/', (req,res) => {
                     });
                     res.cookie('token', token, {
                         domain: '.toons.tae-yoon.me',
+                        expires: new Date(Date.now() + 900000),
                         secure: 'true',
                         httpOnly: false,
                     }).sendStatus(200);
