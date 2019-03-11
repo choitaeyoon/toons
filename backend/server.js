@@ -33,6 +33,7 @@ app.get('/api/user/userInfo', userInfo, (req,res) => {
         "email": req.email,
         "nickname": req.nickname
     }
+    console.log(info);
     res.status(200).json(info)
 })
 

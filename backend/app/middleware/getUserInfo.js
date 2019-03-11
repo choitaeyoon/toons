@@ -11,11 +11,13 @@ const withAuth = function(req,res,next) {
         req.cookies.token;
 
     if(!token) {
+        console.log("No Token In getuserinfo");
         res.status(401).send('Unauthorized: No Token Provided');
     }
     else {
         jwt.verify(token, secret, function(err,decoded){
             if(err){
+                console.log("Wrong Token In getuserinfo");
                 res.status(401).send('Unauthroized: Invalid Token');
             }
             else {
@@ -27,6 +29,7 @@ const withAuth = function(req,res,next) {
                             .json({ error: 'Internal error please try again' });
                     }
                     else if(!result){
+                        console.log("incorrect user or password in getuserinfo")
                         res.status(401)
                             .json({ error:'Incorrect email or password' });
                     }

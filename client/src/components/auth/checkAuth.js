@@ -11,7 +11,13 @@ export default function withAuth(ComponentToProtect) {
       };
     }
     componentDidMount() {
-      fetch('https://api.toons.tae-yoon.me/api/checkToken')
+      fetch('https://api.toons.tae-yoon.me/api/checkToken',{
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
         .then(res => {
           if (res.status === 200) {
             this.setState({ loading: false });
