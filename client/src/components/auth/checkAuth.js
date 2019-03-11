@@ -12,6 +12,7 @@ export default function withAuth(ComponentToProtect) {
     }
     componentDidMount() {
       fetch('https://api.toons.tae-yoon.me/api/checkToken',{
+        method: 'GET',
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
