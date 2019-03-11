@@ -42,7 +42,7 @@ router.post('/', (req,res) => {
                         domain: '.toons.tae-yoon.me',
                         expires: new Date(Date.now() + 900000),
                         secure: 'true',
-                        httpOnly: true,
+                        httpOnly: false,
                     }).sendStatus(200);
                 }
             })
