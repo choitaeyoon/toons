@@ -26,7 +26,6 @@ app.options(cors(corsOptions));
 
 //Routes
 app.get('/api/checkToken', withAuth, (req,res) => {
-    console.log(req.cookies);
     res.sendStatus(200);
 })
 app.get('/api/user/userInfo', userInfo, (req,res) => {
