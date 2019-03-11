@@ -16,12 +16,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-const corsOptions = {
-    origin: process.env.URL,
-    credentials: true
-};
 
-app.use(cors(corsOptions));
 
 //Routes
 app.get('/api/checkToken', withAuth, (req,res) => {
@@ -36,6 +31,12 @@ app.get('/api/user/userInfo', userInfo, (req,res) => {
     res.status(200).json(info)
 })
 
+const corsOptions = {
+    origin: process.env.URL,
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use('/api/user/register', userRegister);
 app.use('/api/user/authenticate',userAuthenticate);
 
