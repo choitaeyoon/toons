@@ -73,6 +73,7 @@ const styles = theme => ({
         else{
             fetch('https://api.toons.tae-yoon.me/api/user/register', {
                 method: 'POST',
+                credentials: 'include',
                 body: JSON.stringify(this.state),
                 headers: {
                   'Content-Type': 'application/json'

@@ -15,7 +15,8 @@ export default function withAuth(ComponentToProtect) {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Cache': 'no-cache'
         }
       })
         .then(res => {

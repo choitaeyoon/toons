@@ -78,7 +78,8 @@ class SignInPage extends React.Component {
       body: JSON.stringify(this.state),
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Cache': 'no-cache'
       }
     })
     .then(res => {
