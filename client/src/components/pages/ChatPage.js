@@ -70,7 +70,7 @@ class ChatPage extends Component {
       onlineUsers : []
     }
 
-    this.socket = io('https://api.toons.tae-yoon.me');
+    this.socket = io('https://api.toons.tae-yoon.me', {transports: ['websocket']});
 
     //SET AND SEND NICKNAME OF NEW CONNECTION
     this.socket.on('connect', () => {
